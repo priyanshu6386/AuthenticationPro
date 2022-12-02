@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-
-  //check if user exists?
   
   return (
     <div className='bg-black text-slate-200 w-full h-14 border border-transparent border-b-white'>

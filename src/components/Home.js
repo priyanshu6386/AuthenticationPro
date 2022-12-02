@@ -27,33 +27,30 @@ const Home = () => {
 
     const checkName =(e)=>{
         setName(e.target.value);
-        if(name.length<=2){
+        if(name.length===0){
             setValidName(false);
-        }else if(!name.includes(" ")){
-            setValidName(false);
-        }else if(!name.split(" ")[1]){
-            setValidName(false);
-        }else{
+        }
+       
+        else{
             setValidName(true);
         }
     }
 
     const checkEmail =(e)=>{
         setEmail(e.target.value);
-        if(email.length<=12){
+        if(email.length===0){
             setValidEmail(false);
-        }else if(!email.includes("@")){
-            setValidEmail(false);
-        }else if(!email.split("@")[1]===("gmail.com" || "outlook.com" || "yahoo.com")){
-            setValidEmail(false);
-        }else{
+        }
+        
+        else
+        {
             setValidEmail(true);
         }
     }
 
     const checkPassword =(e)=>{
         setPassword(e.target.value);
-        if(password.length<5){
+        if(password.length===0){
             setValidPassword(false);
         }else{
             setValidPassword(true);
@@ -62,7 +59,7 @@ const Home = () => {
 
     const checkConfirmPassword =(e)=>{
         setConfirmPassword(e.target.value);
-        if(confirmPassword.length < 5 ){
+        if(confirmPassword.length ===0 ){
             setValidConfirmPassword(false);
         }else{
             setValidConfirmPassword(true);
@@ -75,15 +72,7 @@ const Home = () => {
             console.log("Invalid")
             setRedAlert(true);
             setGreenAlert(false);
-            if(!validName){
-                alert("Enter valid name");
-            }else if(!validEmail){
-                alert("Enter valid email");
-            }else if(password !== confirmPassword){
-                alert("Password did not matched");
-            }else if(password.length < 5){
-                alert("Password is too short");
-            }
+          
         }else{
             setRedAlert(false);
             setGreenAlert(true);
@@ -96,7 +85,7 @@ const Home = () => {
             setConfirmPassword("");
             setTimeout(() => {
                 navigate('/profile');
-            },500 );
+            },500);
         }
     }
 
@@ -110,38 +99,38 @@ const Home = () => {
     
 
   return (
-    <div className='h-full w-[70%] m-auto'>
-        <div className='mt-10'>
-            <h2 className='text-3xl'>Sign < span style={{color:'skyblue'}}>up</span> </h2>
-            <div className='mt-5'>
-                <div className=' border border-transparent border-b-white mt-1'>
+    <div className='h-full w-[90%] ml-20 flex'>
+        <div className='mt-10 basis-1/3 '>
+            <h2 className='text-3xl text-black'>Sign Up</h2>
+            <div className='mt-5 shadow-2xl  px-8 pt-6 pb-8 '>
+                <div className='border border-transparent border-b-gray-500 mt-1'>
                     <input 
                         placeholder='Full Name' 
-                        className='bg-transparent h-10 w-full outline-none' 
+                        className='bg-transparent text-gray-700 h-10 w-full outline-none' 
                         value={name} 
                         onChange={checkName} />
                 </div>
 
-                <div className=' border border-transparent border-b-white mt-1'>
+                <div className=' border border-transparent border-b-gray-500 mt-1'>
                     <input 
                         placeholder='Email' 
-                        className='bg-transparent h-10 w-full outline-none' 
+                        className='bg-transparent text-gray-700 h-10 w-full outline-none' 
                         value={email} 
                         onChange={checkEmail}  />
                 </div>
 
-                <div className=' border border-transparent border-b-white mt-1'>
+                <div className=' border border-transparent border-b-gray-500 mt-1'>
                     <input 
                         placeholder='Password' 
-                        className='bg-transparent h-10 w-full outline-none' 
+                        className='bg-transparent text-gray-700 h-10 w-full outline-none' 
                         value={password} 
                         onChange={checkPassword} />
                 </div>
 
-                <div className=' border border-transparent border-b-white mt-1'>
+                <div className=' border border-transparent  border-b-gray-500 mt-1'>
                     <input 
                         placeholder='Confirm Password' 
-                        className='bg-transparent h-10 w-full outline-none'  
+                        className='bg-transparent text-gray-700 h-10 w-full outline-none'  
                         value={confirmPassword} 
                         onChange={checkConfirmPassword} />
                 </div>
@@ -153,7 +142,11 @@ const Home = () => {
 
                 <button onClick={onSubmit} className='bg-indigo-700	 text-white w-28 rounded-sm p-2'>Signup</button>
             </div>
+           
         </div>
+        <div className='basis-1/2 ml-40 mt-10'>
+        <img src="https://www.nicepng.com/png/full/192-1924170_recently-a-lot-of-people-talk-about-cryptocurrency.png"></img> 
+    </div>
     </div>
   )
 }
